@@ -1,0 +1,360 @@
+**Check SQL files are table creation and insertion code 
+
+
+Question 2
+=======================================SIGN- UP FORM============================================================================
+mysql> source ~/php_web/class_assignment/datastorage/users.sql;
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+Query OK, 0 rows affected, 1 warning (0.01 sec)
+
+Query OK, 1 row affected (0.01 sec)
+
+Query OK, 1 row affected (0.00 sec)
+
+Query OK, 1 row affected (0.00 sec)
+
+Query OK, 1 row affected (0.00 sec)
+
+Query OK, 1 row affected (0.00 sec)
+
+mysql> show tables;
++------------------+
+| Tables_in_foa391 |
++------------------+
+| Courses          |
+| Marks            |
+| Student_Info     |
+| students         |
+| users            |
++------------------+
+5 rows in set (0.00 sec)
+
+mysql> DESCRIBE users;
++-------------+-------------+------+-----+---------+----------------+
+| Field       | Type        | Null | Key | Default | Extra          |
++-------------+-------------+------+-----+---------+----------------+
+| screen_name | varchar(50) | NO   |     | NULL    |                |
+| email       | varchar(50) | NO   |     | NULL    |                |
+| pswd        | varchar(50) | NO   |     | NULL    |                |
+| pswdr       | varchar(50) | NO   |     | NULL    |                |
+| avater_img  | varchar(50) | NO   |     | NULL    |                |
+| userId      | int         | NO   | PRI | NULL    | auto_increment |
++-------------+-------------+------+-----+---------+----------------+
+6 rows in set (0.00 sec)
+
+mysql> SELECT * FROM users;
++--------------+-----------+-----------+----------------------+------------+--------+
+| screen_name  | email     | pswd      | pswdr                | avater_img | userId |
++--------------+-----------+-----------+----------------------+------------+--------+
+| 2002Ahmed    | abcdefg8  | abcdefg8  | alabba200@gmail.com  | URL1       |      1 |
+| 2002Qaswar   | poiuytr1  | poiuytr1  | ali202@gmail.com     | URL2       |      2 |
+| 2002Nicholas | qwerty12  | qwerty12  | phosan203@gmail.com  | URL3       |      3 |
+| 2002Nikki    | mnbvcxz12 | mnbvcxz12 | pawlow204@gmail.com  | URL4       |      4 |
+| 2002John     | lkjhgfd7  | lkjhgfd7  | eric20j206@gmail.com | URL5       |      5 |
++--------------+-----------+-----------+----------------------+------------+--------+
+5 rows in set (0.00 sec)
+==========================================================================================================================================
+
+
+
+
+=========================================================Poll Creation Form=================================================================================
+
+mysql> SHOW TABLES;
++------------------+
+| Tables_in_foa391 |
++------------------+
+| Courses          |
+| Marks            |
+| Student_Info     |
+| students         |
+| users            |
++------------------+
+5 rows in set (0.00 sec)
+
+mysql> source ~/php_web/class_assignment/datastorage/pollcreation.sql;
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+Query OK, 0 rows affected, 6 warnings (0.02 sec)
+
+Query OK, 5 rows affected (0.00 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> DESCRIBE pollcreation;
++---------------+--------------+------+-----+---------+----------------+
+| Field         | Type         | Null | Key | Default | Extra          |
++---------------+--------------+------+-----+---------+----------------+
+| screen_name   | varchar(50)  | NO   |     | NULL    |                |
+| avater_img    | varchar(50)  | NO   |     | NULL    |                |
+| pollId        | int          | NO   | PRI | NULL    | auto_increment |
+| userId        | int          | NO   | MUL | NULL    |                |
+| pollquestion  | varchar(100) | YES  |     | NULL    |                |
+| pollanswer1   | varchar(50)  | YES  |     | NULL    |                |
+| pollanswer2   | varchar(50)  | YES  |     | NULL    |                |
+| pollanswer3   | varchar(50)  | YES  |     | NULL    |                |
+| pollanswer4   | varchar(50)  | YES  |     | NULL    |                |
+| pollanswer5   | varchar(50)  | YES  |     | NULL    |                |
+| pollopentime  | int          | YES  |     | NULL    |                |
+| pollopendate  | int          | YES  |     | NULL    |                |
+| pollclosetime | int          | YES  |     | NULL    |                |
+| pollclosedate | int          | YES  |     | NULL    |                |
++---------------+--------------+------+-----+---------+----------------+
+14 rows in set (0.00 sec)
+
+mysql> SELECT * FROM pollcreation;
++--------------+------------+--------+--------+-----------------------------------------+-------------+-------------+-------------+----------------------+---------------------------+--------------+--------------+---------------+---------------+
+| screen_name  | avater_img | pollId | userId | pollquestion                            | pollanswer1 | pollanswer2 | pollanswer3 | pollanswer4          | pollanswer5               | pollopentime | pollopendate | pollclosetime | pollclosedate |
++--------------+------------+--------+--------+-----------------------------------------+-------------+-------------+-------------+----------------------+---------------------------+--------------+--------------+---------------+---------------+
+| 2002Ahmed    | URL1       |      1 |      1 | what is your name ?                     | favour      | 2           | 3           | 4                    | 5                         |         1040 |     21092022 |          1140 |      22092022 |
+| 2002Qaswar   | URL2       |      2 |      2 | Today Is what day                       | Monday      | Tuesday     | Wednesday   | Friday               | Saturday                  |          740 |     24092022 |          1040 |      29092022 |
+| 2002Nicholas | URL3       |      3 |      3 | What is this?                           | apple       |             | yellow      | boy                  |                           |          640 |     21092022 |          1140 |      30092022 |
+| 2002Nikki    | URL4       |      4 |      4 | which is more dangerous?                | snake       | lion        |             |                      |                           |          540 |     24092022 |           240 |       1102022 |
+| 2002John     | URL5       |      5 |      5 | What do You when you are in a bad mood? | Sleep       | Pray        | Drink       | Hang out with people | Drag others down with you |         1240 |     28092022 |           140 |      29092022 |
++--------------+------------+--------+--------+-----------------------------------------+-------------+-------------+-------------+----------------------+---------------------------+--------------+--------------+---------------+---------------+
+5 rows in set (0.00 sec)
+
+mysql> 
+==========================================================================================================================================
+
+
+
+
+=======================================Poll Vote Page============================================================================
+
+mysql> 
+mysql> 
+mysql> 
+mysql> SHOW TABLES;
++------------------+
+| Tables_in_foa391 |
++------------------+
+| Courses          |
+| Marks            |
+| Student_Info     |
+| pollcreation     |
+| students         |
+| users            |
++------------------+
+6 rows in set (0.00 sec)
+
+mysql> source ~/php_web/class_assignment/datastorage/pollvote.sql;
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+Query OK, 0 rows affected, 1 warning (0.02 sec)
+
+Query OK, 1 row affected (0.00 sec)
+Records: 1  Duplicates: 0  Warnings: 0
+
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT * FROM pollvote;
++-------------+--------+---------------------+------------+
+| screen_name | pollId | pollquestion        | pollchoice |
++-------------+--------+---------------------+------------+
+| 2002Ahmed   |      1 | what is your name ? | favour     |
++-------------+--------+---------------------+------------+
+1 row in set (0.00 sec)
+
+
+==========================================================================================================================================
+
+
+
+
+
+
+Question 3
+============================================================ Main Page ==================================================================
+mysql> source ~/php_web/class_assignment/dataretrieval/indexpage.sql;
+Query OK, 0 rows affected, 1 warning (0.01 sec)
+
+Query OK, 0 rows affected, 5 warnings (0.01 sec)
+
+Query OK, 5 rows affected (0.01 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM indexpage.sql;
+ERROR 1142 (42000): SELECT command denied to user 'foa391'@'localhost' for table 'sql'
+mysql> SHOW TABLES;
++------------------+
+| Tables_in_foa391 |
++------------------+
+| Courses          |
+| Marks            |
+| Student_Info     |
+| indexpage        |
+| pollcreation     |
+| pollvote         |
+| students         |
+| users            |
++------------------+
+8 rows in set (0.00 sec)
+
+mysql> DESCRIBE indexpage;
++---------------+--------------+------+-----+---------+-------+
+| Field         | Type         | Null | Key | Default | Extra |
++---------------+--------------+------+-----+---------+-------+
+| pollquestion  | varchar(100) | NO   |     | NULL    |       |
+| pollId        | int          | NO   | MUL | NULL    |       |
+| pollanswer1   | varchar(50)  | YES  |     | NULL    |       |
+| pollanswer2   | varchar(50)  | YES  |     | NULL    |       |
+| pollanswer3   | varchar(50)  | YES  |     | NULL    |       |
+| pollanswer4   | varchar(50)  | YES  |     | NULL    |       |
+| pollanswer5   | varchar(50)  | YES  |     | NULL    |       |
+| pollopentime  | int          | NO   |     | NULL    |       |
+| pollopendate  | int          | NO   |     | NULL    |       |
+| pollclosetime | int          | NO   |     | NULL    |       |
+| pollclosedate | int          | NO   |     | NULL    |       |
++---------------+--------------+------+-----+---------+-------+
+11 rows in set (0.00 sec)
+
+mysql> SELECT * FROM indexpage;
++-----------------------------------------+--------+-------------+-------------+-------------+----------------------+---------------------------+--------------+--------------+---------------+---------------+
+| pollquestion                            | pollId | pollanswer1 | pollanswer2 | pollanswer3 | pollanswer4          | pollanswer5               | pollopentime | pollopendate | pollclosetime | pollclosedate |
++-----------------------------------------+--------+-------------+-------------+-------------+----------------------+---------------------------+--------------+--------------+---------------+---------------+
+| what is your name ?                     |      1 | favour      | 2           | 3           | 4                    | 5                         |         1040 |     21092022 |          1140 |      22092022 |
+| Today Is what day                       |      2 | Monday      | Tuesday     | Wednesday   | Friday               | Saturday                  |          740 |     24092022 |          1040 |      29092022 |
+| What is this?                           |      3 | apple       |             | yellow      | boy                  |                           |          640 |     21092022 |          1140 |      30092022 |
+| which is more dangerous?                |      4 | snake       | lion        |             |                      |                           |          540 |     24092022 |           240 |       1102022 |
+| What do You when you are in a bad mood? |      5 | Sleep       | Pray        | Drink       | Hang out with people | Drag others down with you |         1240 |     28092022 |           140 |      29092022 |
++-----------------------------------------+--------+-------------+-------------+-------------+----------------------+---------------------------+--------------+--------------+---------------+---------------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT * FROM indexpage ORDER BY pollopentime,pollopendate;
++-----------------------------------------+--------+-------------+-------------+-------------+----------------------+---------------------------+--------------+--------------+---------------+---------------+
+| pollquestion                            | pollId | pollanswer1 | pollanswer2 | pollanswer3 | pollanswer4          | pollanswer5               | pollopentime | pollopendate | pollclosetime | pollclosedate |
++-----------------------------------------+--------+-------------+-------------+-------------+----------------------+---------------------------+--------------+--------------+---------------+---------------+
+| which is more dangerous?                |      4 | snake       | lion        |             |                      |                           |          540 |     24092022 |           240 |       1102022 |
+| What is this?                           |      3 | apple       |             | yellow      | boy                  |                           |          640 |     21092022 |          1140 |      30092022 |
+| Today Is what day                       |      2 | Monday      | Tuesday     | Wednesday   | Friday               | Saturday                  |          740 |     24092022 |          1040 |      29092022 |
+| what is your name ?                     |      1 | favour      | 2           | 3           | 4                    | 5                         |         1040 |     21092022 |          1140 |      22092022 |
+| What do You when you are in a bad mood? |      5 | Sleep       | Pray        | Drink       | Hang out with people | Drag others down with you |         1240 |     28092022 |           140 |      29092022 |
++-----------------------------------------+--------+-------------+-------------+-------------+----------------------+---------------------------+--------------+--------------+---------------+---------------+
+5 rows in set (0.00 sec)
+
+mysql> 
+
+==========================================================================================================================================
+
+
+
+
+
+============================================================ Loginform ==================================================================
+
+mysql> source ~/php_web/class_assignment/dataretrieval/loginform.sql;
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+Query OK, 0 rows affected, 1 warning (0.01 sec)
+
+Query OK, 1 row affected (0.01 sec)
+Records: 1  Duplicates: 0  Warnings: 0
+
+mysql> 
+mysql> 
+mysql> SELECT * FROM loginform;
++--------------+----------+------------+--------+
+| screen_name  | pswd     | avater_img | userId |
++--------------+----------+------------+--------+
+| 2002Nicholas | qwerty12 | URL3       |      3 |
++--------------+----------+------------+--------+
+1 row in set (0.00 sec)
+
+mysql> 
+
+
+
+==========================================================================================================================================
+
+
+
+
+===================================================================pollmanagementpage=================================================================
+
+mysql> source ~/php_web/class_assignment/dataretrieval/pollmanagementpage.sql;
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+Query OK, 0 rows affected, 5 warnings (0.02 sec)
+
+Query OK, 1 row affected (0.00 sec)
+Records: 1  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM pollmanagementpage;
++--------+--------------------------+-------------+-------------+-------------+-------------+-------------+--------------+--------------+---------------+---------------+
+| userId | pollquestion             | pollanswer1 | pollanswer2 | pollanswer3 | pollanswer4 | pollanswer5 | pollopentime | pollopendate | pollclosetime | pollclosedate |
++--------+--------------------------+-------------+-------------+-------------+-------------+-------------+--------------+--------------+---------------+---------------+
+|      4 | which is more dangerous? | snake       | lion        |             |             |             |          540 |     24092022 |           240 |       1102022 |
++--------+--------------------------+-------------+-------------+-------------+-------------+-------------+--------------+--------------+---------------+---------------+
+1 row in set (0.00 sec)
+
+mysql> 
+
+==========================================================================================================================================
+
+
+
+
+===================================================================pollvote page=================================================================
+
+mysql> source ~/php_web/class_assignment/dataretrieval/pollvotepage.sql;
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+Query OK, 0 rows affected, 1 warning (0.01 sec)
+
+Query OK, 1 row affected (0.00 sec)
+Records: 1  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM pollvotepage;
++--------+---------------+-------------+-------------+-------------+-------------+-------------+
+| pollId | pollquestion  | pollanswer1 | pollanswer2 | pollanswer3 | pollanswer4 | pollanswer5 |
++--------+---------------+-------------+-------------+-------------+-------------+-------------+
+|      3 | What is this? | apple       |             | yellow      | boy         |             |
++--------+---------------+-------------+-------------+-------------+-------------+-------------+
+1 row in set (0.00 sec)
+
+mysql> 
+
+
+==========================================================================================================================================
+
+
+
+
+=====================================================pollresultspage=====================================================================================
+
+mysql> source ~/php_web/class_assignment/dataretrieval/pollresultspage.sql;
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+Query OK, 0 rows affected, 5 warnings (0.01 sec)
+
+Query OK, 1 row affected (0.00 sec)
+Records: 1  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM pollresultspage;
++--------+--------------------------+-------------+-------------+-------------+-------------+-------------+--------------+--------------+---------------+---------------+
+| pollId | pollquestion             | pollanswer1 | pollanswer2 | pollanswer3 | pollanswer4 | pollanswer5 | pollopentime | pollopendate | pollclosetime | pollclosedate |
++--------+--------------------------+-------------+-------------+-------------+-------------+-------------+--------------+--------------+---------------+---------------+
+|      4 | which is more dangerous? | snake       | lion        |             |             |             |          540 |     24092022 |           240 |       1102022 |
++--------+--------------------------+-------------+-------------+-------------+-------------+-------------+--------------+--------------+---------------+---------------+
+1 row in set (0.00 sec)
+
+mysql> 
+
+==========================================================================================================================================
